@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         //2D array for winner.
         int [][] arrayWinner = {{0,1,2},{3,4,5},{6,7,8}, {0,3,6},{1,4,7},{2,5,8}, {0,4,8},{2,4,6}};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,13 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, tappedImageView.getTag().
                 toString(),Toast.LENGTH_SHORT).show();
+
+        for(int [] winnerArray : arrayWinner){
+            if (playerChoice[winnerArray[0]] == playerChoice[winnerArray[1]]
+                    && playerChoice[winnerArray[1]] == playerChoice[winnerArray[2]]){
+                Toast.makeText(this, "Winner", Toast.LENGTH_SHORT).show();
+            }
+        }
 
 
 
