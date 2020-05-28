@@ -8,10 +8,12 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-enum Player {
+        enum Player {
 
-    one, two
-}
+            one, two
+        }
+
+        Player currentPlayer = Player.one;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,10 +25,19 @@ enum Player {
 
     //onClick method
     public void lionImageClicked(View imageView){
+
         ImageView tappedImageView = (ImageView) imageView;
         tappedImageView.setTranslationX(-2000);
-        tappedImageView.setImageResource(R.drawable.tiger);
-        tappedImageView.animate().translationXBy(2000).alpha(1).setDuration(1000);
+
+        if(currentPlayer == Player.one) {
+            tappedImageView.setImageResource(R.drawable.lion);
+            currentPlayer = Player.two;
+        }
+        else if(currentPlayer == Player.two){
+            tappedImageView.setImageResource(R.drawable.tiger);
+            currentPlayer = Player.one;
+        }
+        tappedImageView.animate().translationXBy(2000).alpha(1).rotation(720).setDuration(1000);
 
 
 
