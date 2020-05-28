@@ -29,9 +29,14 @@ public class MainActivity extends AppCompatActivity {
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                img1.animate().translationX(-400).setDuration(3000);
+                lionPictureSwitch();
             }
         });
+    }
+
+    public void lionPictureSwitch(){
+        img1.animate().translationX(-400).rotation(360).setDuration(3000);
+
     }
 
 
