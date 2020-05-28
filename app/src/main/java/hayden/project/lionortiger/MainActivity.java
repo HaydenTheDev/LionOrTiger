@@ -39,17 +39,19 @@ public class MainActivity extends AppCompatActivity {
         tigerImg9 = findViewById(R.id.tigerImg9);
 
 
-        img1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                lionPictureSwitch();
-            }
-        });
+
     }
 
+    //onClick method
+    public void lionImageClicked(View image){
+        lionPictureSwitch();
+
+    }
+
+    //method for translations
     public void lionPictureSwitch(){
         img1.animate().translationX(-400).rotation(-360).setDuration(3000);
-
+        tigerImg1.animate().alpha(1f).setDuration(4000);
     }
 
 
