@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         enum Player {
-            one, two
+            one, two, none;
         }
         Player currentPlayer = Player.one;
 
@@ -33,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         whoTurn = findViewById(R.id.whosTurn);
 
+        playerChoice[0] = Player.none;
+        playerChoice[1] = Player.none;
+        playerChoice[2] = Player.none;
+        playerChoice[3] = Player.none;
+        playerChoice[4] = Player.none;
+        playerChoice[5] = Player.none;
+        playerChoice[6] = Player.none;
+        playerChoice[7] = Player.none;
+        playerChoice[8] = Player.none;
 
     }
 
@@ -57,12 +66,13 @@ public class MainActivity extends AppCompatActivity {
         tappedImageView.animate().translationXBy(2000).
                 alpha(1).rotation(720).setDuration(1000);
 
-        Toast.makeText(this, tappedImageView.getTag().
-                toString(),Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, tappedImageView.getTag().
+//                toString(),Toast.LENGTH_SHORT).show();
 
         for(int [] winnerArray : arrayWinner){
             if (playerChoice[winnerArray[0]] == playerChoice[winnerArray[1]]
-                    && playerChoice[winnerArray[1]] == playerChoice[winnerArray[2]]){
+                    && playerChoice[winnerArray[1]] == playerChoice[winnerArray[2]]
+                    && playerChoice[winnerArray[0]] != Player.none){
                 Toast.makeText(this, "Winner", Toast.LENGTH_SHORT).show();
             }
         }
