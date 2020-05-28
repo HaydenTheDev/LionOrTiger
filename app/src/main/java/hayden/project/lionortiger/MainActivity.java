@@ -95,12 +95,20 @@ public class MainActivity extends AppCompatActivity {
                         gameOver = true;
 
                     if (currentPlayer == Player.one) {
-                        Toast.makeText(this, "Player 1 is the Winner", Toast.LENGTH_SHORT).show();
-
+                        whoTurn.setText("Tiger King has won!");
+                        whoTurn.setTextColor(getResources().getColor(R.color.winnerColor));
+                        whoTurn.setTextSize(20f);
+                        whoTurn.animate().scaleX(2).scaleY(2).translationY(400).setDuration(1000);
                     } else if (currentPlayer == Player.two) {
-                        Toast.makeText(this, "Player 2 is the Winner", Toast.LENGTH_SHORT).show();
+                        whoTurn.setText("Carol Baskin has won!");
+                        whoTurn.setTextSize(20f);
+                        whoTurn.setTextColor(getResources().getColor(R.color.winnerColor));
+                        whoTurn.animate().scaleX(2).scaleY(2).translationY(400).setDuration(1000);
                     } else if (currentPlayer == Player.none) {
-                        Toast.makeText(this, "Nobody won!", Toast.LENGTH_SHORT).show();
+                        whoTurn.setText("Nobody one!");
+                        whoTurn.setTextColor(getResources().getColor(R.color.winnerColor));
+                        whoTurn.animate().scaleX(2).scaleY(2).translationY(400).setDuration(1000);
+
                     }
                 }
             }
