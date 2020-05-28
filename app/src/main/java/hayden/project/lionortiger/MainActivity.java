@@ -1,9 +1,12 @@
 package hayden.project.lionortiger;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.gridlayout.widget.GridLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView whoTurn;
 
+    private GridLayout gridLayout;
+    private Button resetBtn;
 
         enum Player {
             one, two, none;
@@ -33,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        gridLayout = findViewById(R.id.gridLayout);
+        resetBtn = findViewById(R.id.reset);
         whoTurn = findViewById(R.id.whosTurn);
 
         playerChoice[0] = Player.none;
@@ -44,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
         playerChoice[6] = Player.none;
         playerChoice[7] = Player.none;
         playerChoice[8] = Player.none;
+
+        resetBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetGame();
+            }
+        });
 
     }
 
@@ -76,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 if (playerChoice[winnerArray[0]] == playerChoice[winnerArray[1]]
                         && playerChoice[winnerArray[1]] == playerChoice[winnerArray[2]]
                         && playerChoice[winnerArray[0]] != Player.none) {
+                    //set button to visible after game completion
+                        resetBtn.setVisibility(View.VISIBLE);
                         gameOver = true;
 
                     if (currentPlayer == Player.one) {
@@ -89,5 +105,29 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    private void resetGame(){
+        //will return the amount of grid space or children in grid
+        for (int index = 0; index < gridLayout.getChildCount(); index++){
+
+            ImageView imageView = (ImageView) gridLayout.getChildAt(index);
+            imageView.setImageDrawable(null);
+            imageView.setAlpha(0.2f);
+        }
+
+        currentPlayer = Player.one;
+
+        playerChoice[0] = Player.none;
+        playerChoice[1] = Player.none;
+        playerChoice[2] = Player.none;
+        playerChoice[3] = Player.none;
+        playerChoice[4] = Player.none;
+        playerChoice[5] = Player.none;
+        playerChoice[6] = Player.none;
+        playerChoice[7] = Player.none;
+        playerChoice[8] = Player.none;
+
+        gameOver = false;
+
     }
 }
