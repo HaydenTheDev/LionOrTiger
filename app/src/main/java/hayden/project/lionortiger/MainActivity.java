@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             playerChoice[tiTag] = currentPlayer;
 
             if (currentPlayer == Player.one) {
-                tappedImageView.setImageResource(R.drawable.lion);
+                tappedImageView.setImageResource(R.mipmap.carol_baskin);//Changed picture
                 whoTurn.setText(R.string.player2);
                 currentPlayer = Player.two;
 

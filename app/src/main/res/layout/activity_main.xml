@@ -51,7 +51,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/background"
             android:onClick="lionImageClicked"
             android:tag="8" />
 
@@ -60,7 +60,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/background"
             android:onClick="lionImageClicked"
             android:tag="7" />
 
@@ -69,7 +69,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/background"
             android:onClick="lionImageClicked"
             android:tag="6" />
 
@@ -78,7 +78,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/background"
             android:onClick="lionImageClicked"
             android:tag="5" />
 
@@ -87,7 +87,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/background"
             android:onClick="lionImageClicked"
             android:tag="4" />
 
@@ -96,7 +96,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/background"
             android:onClick="lionImageClicked"
             android:tag="3" />
 
@@ -105,7 +105,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/background"
             android:onClick="lionImageClicked"
             android:tag="2" />
 
@@ -114,7 +114,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/background"
             android:onClick="lionImageClicked"
             android:tag="1" />
 
@@ -123,7 +123,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/background"
             android:onClick="lionImageClicked"
             android:tag="0" />
 
