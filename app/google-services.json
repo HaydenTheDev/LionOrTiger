@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "472575345515",
+    "firebase_url": "https://tigertictactoe.firebaseio.com",
+    "project_id": "tigertictactoe",
+    "storage_bucket": "tigertictactoe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472575345515:android:c3436d19a6a8eebbd5022e",
+        "android_client_info": {
+          "package_name": "hayden.project.lionortiger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472575345515-u531ddacris1m7qs8tdr38sgj81kvmm8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMHwsqP0FhbRQHquk40jS98q6e1Fjf5P4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472575345515-u531ddacris1m7qs8tdr38sgj81kvmm8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

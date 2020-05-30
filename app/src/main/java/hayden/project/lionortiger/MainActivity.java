@@ -11,10 +11,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.lang.reflect.Array;
 
 public class MainActivity extends AppCompatActivity {
 
+    private InterstitialAd mInterstitialAd;
     private TextView whoTurn;
 
     private GridLayout gridLayout;
@@ -37,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-"); //took out real id
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         gridLayout = findViewById(R.id.gridLayout);
         resetBtn = findViewById(R.id.reset);
@@ -62,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //onClick method
-    public void lionImageClicked(View imageView) {
+    public void lionImageClicked(View imageView) throws InterruptedException {
         ImageView tappedImageView = (ImageView) imageView;
         int tiTag = Integer.parseInt(tappedImageView.getTag().toString());
 
@@ -71,12 +87,12 @@ public class MainActivity extends AppCompatActivity {
             playerChoice[tiTag] = currentPlayer;
 
             if (currentPlayer == Player.one) {
-                tappedImageView.setImageResource(R.mipmap.carol_baskin);//Changed picture
+                tappedImageView.setImageResource(R.mipmap.carol_baskin_foreground);//Changed picture
                 whoTurn.setText(R.string.player2);
                 currentPlayer = Player.two;
 
             } else if (currentPlayer == Player.two) {
-                tappedImageView.setImageResource(R.drawable.tiger);
+                tappedImageView.setImageResource(R.mipmap.joe_exotic_foreground);
                 whoTurn.setText(R.string.player1);
                 currentPlayer = Player.one;
             }
@@ -99,15 +115,25 @@ public class MainActivity extends AppCompatActivity {
                         whoTurn.setTextColor(getResources().getColor(R.color.winnerColor));
                         whoTurn.setTextSize(20f);
                         whoTurn.animate().scaleX(2).scaleY(2).translationY(400).setDuration(1000);
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        }
                     } else if (currentPlayer == Player.two) {
                         whoTurn.setText("Carol Baskin has won!");
                         whoTurn.setTextSize(20f);
                         whoTurn.setTextColor(getResources().getColor(R.color.winnerColor));
                         whoTurn.animate().scaleX(2).scaleY(2).translationY(400).setDuration(1000);
+
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        }
                     } else if (currentPlayer == Player.none) {
-                        whoTurn.setText("Nobody one!");
+                        whoTurn.setText("Nobody won!");
                         whoTurn.setTextColor(getResources().getColor(R.color.winnerColor));
                         whoTurn.animate().scaleX(2).scaleY(2).translationY(400).setDuration(1000);
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        }
 
                     }
                 }
@@ -121,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
             ImageView imageView = (ImageView) gridLayout.getChildAt(index);
             imageView.setImageDrawable(null);
             imageView.setAlpha(0.2f);
+            whoTurn.animate().translationY(-400).setDuration(1000);
         }
 
         currentPlayer = Player.one;
